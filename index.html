@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA RP FIVEM | GUIA DE CONDUTA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+        /* CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #ccc;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* CURSOR EM CÍRCULO */
+        #custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .main-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #161616;
+            border: 1px solid #2a2a2a;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 1px; color: #fff; text-decoration: none; }
+        
+        .yt-link {
+            background: #ff0000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .yt-link:hover { background: #b30000; transform: scale(1.1); }
+
+        nav a { color: #666; text-decoration: none; margin-left: 20px; font-size: 0.8rem; text-transform: uppercase; }
+
+        .intro-grid { 
+            display: flex; 
+            gap: 40px; 
+            margin-bottom: 50px; 
+            flex-wrap: wrap; 
+            align-items: flex-start; 
+        }
+
+        .profile-img {
+            min-width: 320px;
+            height: 420px;
+            background-color: #222;
+            background-image: url('https://github.com/httpsHYDERKS/CURSO-MODULACAO/blob/main/Captura%20de%20tela%202026-02-05%20224222.png?raw=true'); 
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #333;
+        }
+
+        .intro-text { flex: 1; min-width: 300px; }
+
+        /* EFEITO GLITCH GTA RP FIVEM */
+        .glitch {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fff;
+            position: relative;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .glitch::before, .glitch::after {
+            content: "GTA RP FIVEM";
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.8;
+        }
+
+        .glitch::before {
+            left: 3px;
+            text-shadow: -3px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -3px;
+            text-shadow: -3px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 20px, 0); transform: skew(0.5deg); }
+            100% { clip: rect(40px, 9999px, 50px, 0); transform: skew(-0.5deg); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(50px, 9999px, 60px, 0); transform: skew(-0.5deg); }
+            100% { clip: rect(90px, 9999px, 100px, 0); transform: skew(0.5deg); }
+        }
+
+        .section-title {
+            font-size: 0.9rem; color: #fff; text-transform: uppercase; letter-spacing: 2px;
+            margin: 40px 0 20px 0; display: flex; align-items: center; border-top: 1px solid #333; padding-top: 20px;
+        }
+        .section-title span { color: #555; margin-right: 15px; font-weight: bold; }
+
+        .conduta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .conduta-card { background: #1a1a1a; padding: 20px; border-radius: 4px; border-top: 3px solid #333; }
+        .conduta-card h4 { color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-size: 1rem; }
+        .conduta-card p { font-size: 0.85rem; color: #aaa; margin-bottom: 8px; }
+        .conduta-card ul { list-style: none; font-size: 0.85rem; }
+        .conduta-card li { margin-bottom: 6px; padding-left: 15px; position: relative; }
+        .conduta-card li::before { content: "•"; position: absolute; left: 0; color: #ff0000; }
+
+        .important-note { background: #2a1a1a; border-left: 4px solid #ff4d4d; padding: 15px; margin-top: 20px; font-size: 0.85rem; }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #555;
+            position: relative;
+        }
+
+        .footer-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #888;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor"></div>
+
+    <div class="main-card">
+        <header>
+            <div class="logo-area">
+                <a href="#" class="logo">▲ GTA RP FIVEM</a>
+                <a href="https://www.youtube.com/@ArcanjoPeralta" target="_blank" class="yt-link">MEU CANAL</a>
+            </div>
+            <nav><a href="#">Sobre</a><a href="#">Patentes</a><a href="#">Regras</a><a href="#">Contato</a></nav>
+        </header>
+
+        <section class="intro-grid">
+            <div class="profile-img"></div>
+            <div class="intro-text">
+                <div class="glitch">GTA RP FIVEM</div>
+                <h3 style="color:#fff; text-transform:uppercase; margin-bottom:15px; border-bottom: 1px solid #333; padding-bottom: 5px;">Guia de Conduta Policial</h3>
+                <p>O Guia de Conduta é a base da nossa corporação. Aqui definimos a postura, ética e os protocolos que mantêm a ordem e a imersão no RP.</p>
+                <div class="important-note">
+                    <b>AVISO:</b> O desrespeito a qualquer um desses pontos pode resultar em advertência (ADV) ou exoneração imediata.
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-title"><span>01</span> Postura e Ética</h2>
+        <div class="conduta-grid">
+            <div class="conduta-card" style="border-top-color: #ff0000;">
+                <h4>👮 Valores Core</h4>
+                <ul>
+                    <li><b>Seriedade:</b> Mantenha postura firme e evite brincadeiras fora de contexto.</li>
+                    <li><b>Valorização da Vida:</b> Prioridade máxima é a vida (sua e de terceiros).</li>
+                    <li><b>Proteção Mútua:</b> Jamais coloque um colega em risco.</li>
+                    <li><b>Hierarquia:</b> Respeite cargos superiores; decisões finais são da Direção Geral.</li>
+                </ul>
+            </div>
+            <div class="conduta-card">
+                <h4>🔫 Armamento</h4>
+                <p>O uso de armas é estritamente para defesa e ação policial. O uso para fins civis ou benefício próprio é crime de <b>prevaricação</b>.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title"><span>02</span> Fardamento e Apresentação</h2>
+        <div class="conduta-grid">
+            <div class="conduta-card">
+                <h4>🧥 Em Serviço</h4>
+                <ul>
+                    <li>Uso obrigatório de farda completa compatível com seu cargo.</li>
+                    <li>Proibido circular à paisana dentro da DP ou em viaturas.</li>
+                </ul>
+            </div>
+            <div class="conduta-card">
+                <h4>🏡 Off-Duty (Folga)</h4>
+                <ul>
+                    <li>Retire a farda e guarde todo o armamento da corporação.</li>
+                    <li>Utilize apenas veículos civis e saia do modo serviço no sistema.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title"><span>03</span> Protocolos Operacionais</h2>
+        <div class="conduta-grid">
+            <div class="conduta-card">
+                <h4>🚔 Patrulhamento</h4>
+                <ul>
+                    <li>Efetivo mínimo: 2 oficiais por viatura.</li>
+                    <li>GTM (Moto): Só com suporte de viatura 4 rodas na rua.</li>
+                    <li>Comunicação: Use o rádio apenas para códigos e ocorrências.</li>
+                </ul>
+            </div>
+            <div class="conduta-card">
+                <h4>🔫 Uso da Força</h4>
+                <ul>
+                    <li><b>Comando de Voz:</b> Obrigatório antes de qualquer disparo.</li>
+                    <li><b>Perseguição:</b> Após 3 minutos, liberado pneus/lataria.</li>
+                    <li><b>Código 5:</b> Liberado contra Anti-RP, RDM ou VDM provado.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title"><span>04</span> Crises e Procedimentos Especiais</h2>
+        <div class="conduta-grid">
+            <div class="conduta-card">
+                <h4>🚨 Invasões e Sequestros</h4>
+                <ul>
+                    <li><b>Mandado:</b> Necessário para entrar em sedes de facções.</li>
+                    <li><b>CAVE:</b> Assume a linha de frente em sequestros e invasões.</li>
+                    <li><b>Tempo:</b> A CAVE tem 1 hora para concluir invasões.</li>
+                </ul>
+            </div>
+            <div class="conduta-card">
+                <h4>🎭 Regras de RP</h4>
+                <ul>
+                    <li><b>Corrupção:</b> Permitida sob risco do jogador; provas levam à prisão.</li>
+                    <li><b>Inconsciência:</b> Se desmaiar e não receber adrenalina, esquece a ação.</li>
+                    <li><b>GoPro:</b> ADV ou exoneração só com prova em vídeo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <div>© 2026 GTA RP FIVEM</div>
+            <div class="footer-center">ARCANJO PERALTA</div>
+            <div>DPT. DE CORREGEDORIA</div>
+        </footer>
+    </div>
+
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        document.addEventListener('mousedown', () => { cursor.style.transform = 'translate(-50%, -50%) scale(1.5)'; });
+        document.addEventListener('mouseup', () => { cursor.style.transform = 'translate(-50%, -50%) scale(1)'; });
+    </script>
+
+</body>
+</html>
